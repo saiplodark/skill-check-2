@@ -16,16 +16,38 @@ export default class from extends React.Component{
         })
       }
     
-      Cancel(){
-          
-      }
 
-    
-    render(){
-        return(
-            <div>Form
-                <button>Cancel</button>
-                <button>Add to Inventory</button>
+      
+      
+      render(){
+          return(
+              <div>Form
+                <p>image URL:</p>
+                <input
+                type ="text"
+                name = "img"
+                value = {this.state.img}
+                onChange = {(e)=> this.changeHandler(e)}
+                placeholder = "URL"/>
+                
+                <p>Product Name:</p>
+                <input
+                type ="text"
+                name = "name"
+                value = {this.state.name}
+                onChange = {(e)=> this.changeHandler(e)}
+                placeholder = "name"/>
+                
+                <p>Price:</p>
+                <input
+                type ="text"
+                name = "price"
+                value = {this.state.price}
+                onChange = {(e)=> this.changeHandler(e)}
+                placeholder = "0"/>
+
+                <button >Cancel</button>
+                <button onClick = {()=>this.props.productAdd(this.state)}>Add to Inventory</button>
             </div>
         )
     }

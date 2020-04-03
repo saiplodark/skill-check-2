@@ -9,8 +9,11 @@ export default class Product extends React.Component{
   constructor(){
     super()
     this.state={
-      products:[]
+      products:[],
+      newproducts:[]
     }
+    this.productAdd = this.productAdd.bind(this)
+    this.changeHandler = this.changeHandler.bind(this)
   }
 
   componentDidMount(){
@@ -21,6 +24,20 @@ export default class Product extends React.Component{
     })
   }
 
+  productAdd(producttoadd){
+    axios.post('/api/inventory', producttoadd).then(res=>{
+      this.setState({
+        products: res.data
+      })
+    })
+  }
+
+  changeHandler(e){
+    this.setState({
+      newShoes: e.target.value
+    })
+  }
+
 
   
   
@@ -28,7 +45,8 @@ export default class Product extends React.Component{
     return(
       <div>
         <Dashboard/>
-        <Form/>
+        <Form newproducts={this.state.newproducts} changeHandler={this.changeHandler}
+        productAdd={this.productAdd}/>
         <Header/>
       </div>
     )
