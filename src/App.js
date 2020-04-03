@@ -38,10 +38,25 @@ export default class Product extends React.Component{
     })
   }
 
+  Products(props){
+    let{img, name, price}=props.products
+    return <div className="Products">
+    <img src={img} alt="product pics"/>
+    <span>${name}</span>
+    <span>{price}</span>
+</div>
+  }
 
   
   
   render(){
+    // return(
+    //   <div>
+    //     <img src={img} alt="product pic"/>
+    //     <span>{name}</span>
+    //     <span>${price}</span>
+    //   </div>
+    // )
     return(
       <div>
         <Dashboard/>

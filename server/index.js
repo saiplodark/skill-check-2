@@ -19,6 +19,8 @@ massive({
 
 app.get('/api/inventory', controller.getInventory)
 app.post('/api/inventory', controller.addInventory)
+app.delete('/api/inventory/:id', controller.deleteInventory)
+// app.put('api/inventory/:id', controller.editInventory)
 
 
 

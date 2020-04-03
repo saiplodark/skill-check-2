@@ -16,6 +16,14 @@ export default class from extends React.Component{
         })
       }
     
+    //need to be fixed
+      Reset(){
+        this.setState=({
+            img:"",
+            name:"",
+            priec:0
+        })
+    }
 
       
       
@@ -46,7 +54,7 @@ export default class from extends React.Component{
                 onChange = {(e)=> this.changeHandler(e)}
                 placeholder = "0"/>
 
-                <button >Cancel</button>
+                <button onClick={()=> this.props.Reset(this.setState)}>Cancel</button>
                 <button onClick = {()=>this.props.productAdd(this.state)}>Add to Inventory</button>
             </div>
         )

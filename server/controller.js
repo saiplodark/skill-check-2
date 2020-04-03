@@ -13,5 +13,13 @@ module.exports = {
         .then(()=> res.sendStatus(200))
         .catch(err => console.log(err))
     },
+
+    deleteInventory:(req, res, next)=>{
+        const db = req.app.get('db');
+        const{id} = req.params;
+        db.delete_inventory(id)
+        .then(()=>res.sendStatus(200))
+        .catch(err => console.log(err))
+    }
 }
 
