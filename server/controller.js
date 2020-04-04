@@ -20,6 +20,10 @@ module.exports = {
         db.delete_inventory(id)
         .then(()=>res.sendStatus(200))
         .catch(err => console.log(err))
+    },
+    editInventory:(req, res, next)=>{
+        const db = req.app.get('db');
+        
     }
 }
 
